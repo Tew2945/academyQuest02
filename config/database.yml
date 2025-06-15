@@ -83,6 +83,7 @@ test:
 production:
   primary: &primary_production
     url: <%= ENV["DB_URL_PRODUCTION"] %>
+    database: academyquest
   cache:
     url: <%= ENV["DB_URL_CACHE"] %>
     migrations_paths: db/cache_migrate
