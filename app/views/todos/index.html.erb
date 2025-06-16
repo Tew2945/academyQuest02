@@ -1,5 +1,11 @@
 <% content_for :title, "Todos" %>
 
+<%= render "shared/intro_card", 
+      name: "Teeratorn Thiengtham", 
+      nickname: "Tew", 
+      image_url: asset_path("IMG_1451.JPG"), 
+      desc: "This website is my personal quest tracker for the ODTS Academy. Here you can see my progress, add new quests, and brag about my achievements!" %>
+
 <div class="w-full">
   <% if notice.present? %>
     <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-md inline-block" id="notice"><%= notice %></p>
