@@ -25,7 +25,8 @@ class TodosController < ApplicationController
 
     respond_to do |format|
       if @todo.save
-        format.html { redirect_to @todo, notice: "Todo was successfully created." }
+        format.turbo_stream { render turbo_stream: turbo_stream.prepend("todos", partial: "todo_item", locals: { todo: @todo }) }
+        format.html { redirect_to todos_path, notice: "Todo was successfully created." }
         format.json { render :show, status: :created, location: @todo }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +39,8 @@ class TodosController < ApplicationController
   def update
     respond_to do |format|
       if @todo.update(todo_params)
-        format.html { redirect_to @todo, notice: "Todo was successfully updated." }
+        format.turbo_stream { render turbo_stream: turbo_stream.replace("todo_#{@todo.id}", partial: "todo_item", locals: { todo: @todo }) }
+        format.html { redirect_to todos_path }
         format.json { render :show, status: :ok, location: @todo }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,6 +54,7 @@ class TodosController < ApplicationController
     @todo.destroy!
 
     respond_to do |format|
+      format.turbo_stream { render turbo_stream: turbo_stream.remove("todo_#{@todo.id}") }
       format.html { redirect_to todos_path, status: :see_other, notice: "Todo was successfully destroyed." }
       format.json { head :no_content }
     end
@@ -60,11 +63,11 @@ class TodosController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_todo
-      @todo = Todo.find(params.expect(:id))
+      @todo = Todo.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
     def todo_params
-      params.expect(todo: [ :name, :status ])
+      params.require(:todo).permit(:name, :status)
     end
 end

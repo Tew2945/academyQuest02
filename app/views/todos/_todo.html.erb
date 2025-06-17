@@ -1,10 +1,11 @@
-<div id="<%= dom_id todo %>" class="w-full sm:w-auto my-5 space-y-5">
-  <div>
-    <strong class="block font-medium mb-1">Name:</strong>
+<div class="flex items-center space-x-3">
+  <%= form_with(model: todo, local: false, class: "contents") do |form| %>
+    <%= form.check_box :status, 
+        class: "h-5 w-5 rounded border-gray-300 text-blue-600 focus:ring-blue-500 cursor-pointer",
+        onchange: "this.form.requestSubmit()" %>
+  <% end %>
+  
+  <span class="<%= todo.status? ? 'line-through text-gray-500' : 'text-gray-900' %> transition-all duration-200">
     <%= todo.name %>
-  </div>
-  <div>
-    <strong class="block font-medium mb-1">Status:</strong>
-    <%= todo.status? ? "Yes" : "No" %>
-  </div>
+  </span>
 </div>
