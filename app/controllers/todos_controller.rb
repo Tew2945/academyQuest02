@@ -29,7 +29,8 @@ class TodosController < ApplicationController
         format.html { redirect_to todos_path, notice: "Todo was successfully created." }
         format.json { render :show, status: :created, location: @todo }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        @todos = Todo.order(created_at: :desc)
+        format.html { render :index, status: :unprocessable_entity }
         format.json { render json: @todo.errors, status: :unprocessable_entity }
       end
     end
