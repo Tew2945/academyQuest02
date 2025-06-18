@@ -25,14 +25,17 @@
 
   <!-- Quick Add Form -->
   <div class="mb-6 bg-gray-50 p-4 rounded-lg">
-    <%= form_with(model: Todo.new, local: false, class: "flex gap-3") do |form| %>
+    <%= form_with(model: Todo.new, local: false, class: "flex gap-3", html: { "data-testid": "todo-form" }) do |form| %>
       <div class="flex-1">
         <%= form.text_field :name, 
             placeholder: "Add a new todos...", 
-            class: "w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" %>
+            class: "w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent",
+            "data-testid": "todo-input",
+            required: true %>
       </div>
       <%= form.submit "Add Todo", 
-          class: "px-4 py-2 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors cursor-pointer" %>
+          class: "px-4 py-2 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors cursor-pointer",
+          "data-testid": "add-todo-btn" %>
     <% end %>
   </div>
 
@@ -41,8 +44,8 @@
       <%= render partial: "todo_item", collection: @todos , as: :todo%>
     <% else %>
       <div class="text-center my-10 p-8 bg-gray-50 rounded-lg">
-        <p class="text-gray-500 text-lg">No quests found.</p>
-        <p class="text-gray-400 text-sm mt-2">Start your ODTS Academy journey by adding your first quest!</p>
+        <p class="text-gray-500 text-lg">No todos found.</p>
+        <p class="text-gray-400 text-sm mt-2">Start your ODTS Academy journey by adding your first todo!</p>
       </div>
     <% end %>
   </div>
