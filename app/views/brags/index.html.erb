@@ -1,58 +1,65 @@
 <% content_for :title, "My Goals" %>
-<%= render "shared/intro_card", 
+<div class="flex flex-col lg:flex-row gap-8">
+  <!-- Intro Card -->
+  <div class="w-full lg:w-1/3">
+    <%= render "shared/intro_card", 
       name: "Teeratorn Thiengtham", 
       nickname: "Tew", 
       image_url: asset_path("IMG_1452.JPG"), 
       desc: "This website is my personal quest tracker for the ODTS Academy. Here you can see my progress, add new quests, and brag about my achievements!" %>
-<div class="w-full">
-  <div class="flex justify-between items-center mb-8">
-    <h1 class="font-bold text-4xl">My little 2025 Goals</h1>
-    <%= link_to "Back to Todos", root_path, class: "rounded-md px-3.5 py-2.5 bg-gray-100 hover:bg-gray-50 inline-block font-medium" %>
   </div>
+  <!-- Goals Section -->
+  <div class="w-full lg:w-2/3">
+    <div class="flex flex-col">
+      <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-8">
+        <h1 class="font-bold text-3xl sm:text-4xl mb-4 sm:mb-0">My little 2025 Goals</h1>
+        <%= link_to "Back to Todos", root_path, class: "rounded-md px-3.5 py-2.5 bg-gray-100 hover:bg-gray-50 inline-block font-medium" %>
+      </div>
+      <div class="space-y-6">
+        <div class="bg-white rounded-lg shadow-sm p-4 sm:p-6 border border-gray-100 w-full">
+          <h2 class="text-lg sm:text-xl font-semibold mb-4">Professional Development</h2>
+          <ul class="space-y-4">
+            <li class="flex items-start">
+              <span class="flex-shrink-0 h-6 w-6 rounded-full bg-blue-100 flex items-center justify-center mr-3">
+                <svg class="h-4 w-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+              </span>
+              <span class="text-gray-700">Teach and implement Scrum methodology correctly in university graduation projects, being able to answer any questions from peers</span>
+            </li>
+            <li class="flex items-start">
+              <span class="flex-shrink-0 h-6 w-6 rounded-full bg-blue-100 flex items-center justify-center mr-3">
+                <svg class="h-4 w-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+              </span>
+              <span class="text-gray-700">Learn Kubernetes (K8s) and successfully deploy at least one website</span>
+            </li>
+          </ul>
+        </div>
 
-  <div class="space-y-6">
-    <div class="bg-white rounded-lg shadow-sm p-6 border border-gray-100">
-      <h2 class="text-xl font-semibold mb-4">Professional Development</h2>
-      <ul class="space-y-4">
-        <li class="flex items-start">
-          <span class="flex-shrink-0 h-6 w-6 rounded-full bg-blue-100 flex items-center justify-center mr-3">
-            <svg class="h-4 w-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-            </svg>
-          </span>
-          <span class="text-gray-700">Teach and implement Scrum methodology correctly in university graduation projects, being able to answer any questions from peers</span>
-        </li>
-        <li class="flex items-start">
-          <span class="flex-shrink-0 h-6 w-6 rounded-full bg-blue-100 flex items-center justify-center mr-3">
-            <svg class="h-4 w-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-            </svg>
-          </span>
-          <span class="text-gray-700">Learn Kubernetes (K8s) and successfully deploy at least one website</span>
-        </li>
-      </ul>
-    </div>
-
-    <div class="bg-white rounded-lg shadow-sm p-6 border border-gray-100">
-      <h2 class="text-xl font-semibold mb-4">Language & Communication</h2>
-      <ul class="space-y-4">
-        <li class="flex items-start">
-          <span class="flex-shrink-0 h-6 w-6 rounded-full bg-blue-100 flex items-center justify-center mr-3">
-            <svg class="h-4 w-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-            </svg>
-          </span>
-          <span class="text-gray-700">Achieve a TOEIC score of 650 or higher</span>
-        </li>
-        <li class="flex items-start">
-          <span class="flex-shrink-0 h-6 w-6 rounded-full bg-blue-100 flex items-center justify-center mr-3">
-            <svg class="h-4 w-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-            </svg>
-          </span>
-          <span class="text-gray-700">Write at least one article in English on Medium to practice writing skills</span>
-        </li>
-      </ul>
+        <div class="bg-white rounded-lg shadow-sm p-4 sm:p-6 border border-gray-100 w-full">
+          <h2 class="text-lg sm:text-xl font-semibold mb-4">Language & Communication</h2>
+          <ul class="space-y-4">
+            <li class="flex items-start">
+              <span class="flex-shrink-0 h-6 w-6 rounded-full bg-blue-100 flex items-center justify-center mr-3">
+                <svg class="h-4 w-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+              </span>
+              <span class="text-gray-700">Achieve a TOEIC score of 650 or higher</span>
+            </li>
+            <li class="flex items-start">
+              <span class="flex-shrink-0 h-6 w-6 rounded-full bg-blue-100 flex items-center justify-center mr-3">
+                <svg class="h-4 w-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+              </span>
+              <span class="text-gray-700">Write at least one article in English on Medium to practice writing skills</span>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
 </div>
