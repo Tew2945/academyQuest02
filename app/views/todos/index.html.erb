@@ -24,7 +24,7 @@
     <%= form_with(model: Todo.new, local: false, class: "flex gap-3") do |form| %>
       <div class="flex-1">
         <%= form.text_field :name, 
-            placeholder: "Add a new quest...", 
+            placeholder: "Add a new todos...", 
             class: "w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" %>
       </div>
       <%= form.submit "Add Quest", 
